@@ -323,12 +323,6 @@ err_dat.lv1 <- data_cleaned %>%
   group_by(id) %>% 
   summarise(trlNr = trials.thisN,
             acumErr = cumsum(key_resp_trial.corr == 10))
-```
-
-    ## `summarise()` has grouped output by 'id'. You can override using the `.groups`
-    ## argument.
-
-``` r
 err_plot.lv1 <- ggplot(err_dat.lv1, aes(x = trlNr, y = acumErr)) +
   geom_point(shape = 1, size = 0.2) +
   facet_wrap(~id) +
